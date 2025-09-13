@@ -1,0 +1,38 @@
+export const INPUTS_VALUE = [
+  {
+    id: Date.now() + Math.random(),
+    marks: [],
+    markString: '',
+    type: 'Локальная',
+    login: '',
+    password: '',
+    errors: null,
+  },
+  {
+    id: Date.now() + Math.random(),
+    marks: [],
+    markString: '',
+    type: 'Локальная',
+    login: '',
+    password: '',
+    errors: null,
+  },
+  {
+    id: Date.now() + Math.random(),
+    marks: [],
+    markString: '',
+    type: 'Локальная',
+    login: '',
+    password: '',
+    errors: null,
+  },
+  {
+    id: Date.now() + Math.random(),
+    marks: [],
+    markString: '',
+    type: 'Локальная',
+    login: '',
+    password: '',
+    errors: null,
+  },
+]

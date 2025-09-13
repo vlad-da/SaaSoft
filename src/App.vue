@@ -1,11 +1,23 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { onBeforeMount } from 'vue'
+import FormManagement from './components/FormManagement/FormManagement.vue'
+import { useFormManagementStore } from './stores/form-management'
+const { checkLocalStorage } = useFormManagementStore()
+
+onBeforeMount(() => {
+  checkLocalStorage()
+})
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div class="app">
+    <FormManagement />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+.app {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+</style>
