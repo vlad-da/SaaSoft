@@ -6,7 +6,7 @@ export const INPUTS_VALUE = [
     type: 'Локальная',
     login: '',
     password: '',
-    errors: null,
+    errors: {},
   },
   {
     id: Date.now() + Math.random(),
@@ -15,7 +15,7 @@ export const INPUTS_VALUE = [
     type: 'Локальная',
     login: '',
     password: '',
-    errors: null,
+    errors: {},
   },
   {
     id: Date.now() + Math.random(),
@@ -24,7 +24,7 @@ export const INPUTS_VALUE = [
     type: 'Локальная',
     login: '',
     password: '',
-    errors: null,
+    errors: {},
   },
   {
     id: Date.now() + Math.random(),
@@ -33,6 +33,6 @@ export const INPUTS_VALUE = [
     type: 'Локальная',
     login: '',
     password: '',
-    errors: null,
+    errors: {},
   },
 ]

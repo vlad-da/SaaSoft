@@ -7,7 +7,7 @@ import { onMounted } from 'vue'
 import type { IForm } from '@/types'
 
 const { inputs } = storeToRefs(useFormManagementStore())
-const { addAccount, deleteAccount, validateField } = useFormManagementStore()
+const { addAccount, deleteAccount, validateField, handleTypeChange } = useFormManagementStore()
 
 const autoResize = (event: Event) => {
   const textarea = event.target as HTMLTextAreaElement
@@ -71,7 +71,12 @@ onMounted(() => {
           maxlength="50"
           @input="(e) => handleMarkInput(value, (e.target as HTMLTextAreaElement).value, e)"
         />
-        <select v-model="value.type" name="type" class="form__input select">
+        <select
+          v-model="value.type"
+          name="type"
+          class="form__input select"
+          @change="handleTypeChange(value)"
+        >
           <option value="Локальная">Локальная</option>
           <option value="LDAP">LDAP</option>
         </select>
@@ -109,6 +114,8 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .form {
+  margin-top: 40px;
+
   &__header {
     display: flex;
     align-items: center;

@@ -14,7 +14,7 @@ export const useFormManagementStore = defineStore('form-management', () => {
       type: 'Локальная',
       login: '',
       password: '',
-      errors: null,
+      errors: {},
     })
   }
 
@@ -45,9 +45,8 @@ export const useFormManagementStore = defineStore('form-management', () => {
 
   const validateField = (value: IForm, fieldName: string) => {
     if (!value.errors) {
-      return
+      value.errors = {}
     }
-
     switch (fieldName) {
       case 'login':
         value.errors.login = !value.login || value.login.trim().length === 0 ? true : false
@@ -63,5 +62,16 @@ export const useFormManagementStore = defineStore('form-management', () => {
     }
   }
 
-  return { inputs, addAccount, deleteAccount, checkLocalStorage, validateField }
+  const handleTypeChange = (value: IForm) => {
+    if (value.type === 'LDAP') {
+      value.password = null
+      if (value.errors) {
+        value.errors.password = false
+      }
+    } else {
+      value.password = ''
+    }
+  }
+
+  return { inputs, addAccount, deleteAccount, checkLocalStorage, validateField, handleTypeChange }
 })
